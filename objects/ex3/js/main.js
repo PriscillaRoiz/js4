@@ -25,3 +25,18 @@ let resultados = [
         imagem: "http://img.recipepuppy.com/5.jpg"
     }
 ];
+
+  document.querySelector(".button__search").addEventListener('click', function(){
+      let inputValue = document.querySelector(".input__search").value
+      let achados = resultados.filter(receita => {
+          return receita.titulo.includes(inputValue)
+      })
+      console.log(achados)
+  })
+
+  const renderNavbar = new Navbar
+renderNavbar.render()
+
+resultados.map((receita) => {
+    new Cards(receita).render()
+})
