@@ -26,21 +26,32 @@ let resultados = [
     }
 ];
 
-  document.querySelector(".button__search").addEventListener('click', function(){
-      let inputValue = document.querySelector(".input__search").value
-      let achados = resultados.filter(receita => {
-          return receita.titulo.includes(inputValue)
-                receita.ingredientes.includes()
-      })
-      console.log(achados)
-  })
-
 
 const renderNavbar = new Navbar
 
 renderNavbar.render()
 
+document.querySelector('.cards').innerHTML = 
 resultados.map(receita => {
-    new Card(receita).render()
+    return new Card(receita).render()
+}).join("")
+
+// resultados.map(receita => {
+//     document.querySelector('.cards').insertAdjacentHTML('beforeend', new Card(receita).render())
+// })
+
+// const searchPorTecla = (value) => {
+//     resultados.filter(receita => {
+//        console.log(receita.titulo.includes(value))
+//     })
+// }
+
+document.querySelector('.button__search').addEventListener('click', function(){
+    let inputValue = document.querySelector('.input__search').value.toUpperCase()
+    let achados = resultados.filter(receita => {
+        // o meu inputValue está incluso em alguma parte do título OU dos ingredientes.
+        return receita.titulo.toUpperCase().includes(inputValue) || receita.ingredientes.toUpperCase().includes(inputValue)
+    })
+    console.log(achados)
 })
 
