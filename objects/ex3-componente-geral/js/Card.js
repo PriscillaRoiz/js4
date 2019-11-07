@@ -1,3 +1,4 @@
+  
 class Card{
     constructor(receita){
         this.receita = receita 
@@ -15,4 +16,3 @@ class Card{
         </div>`
     }
 }
-
