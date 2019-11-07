@@ -13,17 +13,15 @@
 
 //async await
 
-async function pegaArcoIro(){
- try {
-     const response = await fetch('rainbows.jpg')
-     if(!response.ok) throw 'Deu ruim'
-     const blob = await response.blob()
-     console.log(response)
-     console.log(blob)
-     document.getElementById("rainbow").src = URL.createObjectURL(blob)
- }
- catch(e){
-    console.log(e)
- }
+async function pegaArcoIro() {
+    try {
+        const response = await fetch('rainbows.jpg')
+        if (!response.ok) throw 'Deu ruim'
+        const blob = await response.blob()
+        console.log(response)
+        console.log(blob)
+        document.getElementById("rainbow").src = URL.createObjectURL(blob)
+    } catch (e) {
+        console.log(e)
+    }
 }
-
